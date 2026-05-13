@@ -1,32 +1,37 @@
 const TIMELINE = [
   {
-    year: '2024–présent',
-    title: 'Administrateur Systèmes & Réseaux',
-    org: 'Valaron',
-    desc: 'Gestion de l\'infrastructure réseau, montage et configuration de serveurs, supervision de la sécurité et de la disponibilité des services.',
+    year: '2024 – Présent',
+    title: 'Technicien Support VIP/VVIP',
+    org: 'CCF – La Défense (CDI)',
+    desc: 'Support dédié aux membres du Comité Exécutif et VIP/VVIP. Interventions d\'urgence en environnements sécurisés, configuration de postes haut de gamme (PC/Mac), coordination avec les équipes Infrastructure, Réseau et Sécurité. Administration AD/O365, ticketing Smartdesk & ServiceNow.',
     color: 'from-purple-500 to-pink-500',
   },
   {
-    year: '2022–2024',
-    title: 'Support IT — Niveau 1 à 3',
-    org: 'Expérience terrain',
-    desc: 'Résolution d\'incidents techniques multi-niveaux : assistance utilisateurs, diagnostics matériels/logiciels, escalade et résolution avancée d\'incidents complexes.',
+    year: '2021 – 2024',
+    title: 'Technicien Informatique',
+    org: 'Colonna – Neuilly-sur-Seine (CDI)',
+    desc: 'Support N1 à N3, helpdesk, déploiement de postes, imaging/masters, administration Active Directory & Office 365, gestion de flotte mobile iOS/Android, ticketing Smartdesk & ServiceNow.',
     color: 'from-pink-500 to-orange-500',
   },
   {
-    year: '2021–2022',
-    title: 'Cybersécurité & Réseaux',
-    org: 'Formation & Projets',
-    desc: 'Sécurisation d\'infrastructures, analyse de vulnérabilités, mise en place de politiques de sécurité réseau et pare-feux.',
+    year: '2020 – 2021',
+    title: 'Technicien Informatique de Backup',
+    org: 'Metaline – Nanterre (CDI)',
+    desc: 'Assistance de proximité, support helpdesk, résolution d\'incidents à distance et sur site, masterisation de postes, interventions hors Île-de-France, gestion Active Directory et inventaire.',
     color: 'from-orange-500 to-cyan-500',
   },
   {
-    year: '2020',
-    title: 'Co-fondateur',
-    org: 'Association Valaron',
-    desc: 'Création et développement de l\'association Valaron, mise en place de l\'infrastructure technique et coordination des ressources système.',
+    year: '2019 – 2023',
+    title: 'Président & Directeur Général',
+    org: 'Association Valaron – Courbevoie',
+    desc: 'Pilotage de projets IT, management d\'équipe, administration serveurs Linux & Windows (DNS, web, Proxmox, VMware), configuration pare-feu, automatisation des tâches, sauvegardes NAS, sécurité et conformité.',
     color: 'from-cyan-500 to-purple-500',
   },
+]
+
+const EDUCATION = [
+  { title: 'Gestionnaire maintenance et support informatique', school: 'CESI École Supérieure', type: 'Alternance' },
+  { title: 'Bac Pro – Systèmes électroniques numériques', school: 'Lycée Claude Chappe', type: 'Baccalauréat' },
 ]
 
 export default function About() {
@@ -37,7 +42,7 @@ export default function About() {
           <span className="gradient-text">À propos</span>
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto">
-          Passionné par les infrastructures, la sécurité et les systèmes qui font tourner le monde numérique.
+          Consultant IT & Technicien Support Informatique VIP/VVIP — 5 ans d'expérience terrain en Île-de-France.
         </p>
       </div>
 
@@ -50,36 +55,68 @@ export default function About() {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-white">Bautros Meouchi</h3>
-                <p className="text-purple-400 font-mono text-sm">@bmeouchi</p>
+                <p className="text-purple-400 font-mono text-sm">Courbevoie · 27 ans</p>
               </div>
             </div>
             <p className="text-slate-300 leading-relaxed mb-4">
-              Administrateur systèmes & réseaux avec une expertise couvrant l'ensemble du spectre IT —
-              du support utilisateur de niveau 1 jusqu'à la résolution d'incidents complexes de niveau 3,
-              en passant par la cybersécurité et la gestion d'infrastructure.
+              Consultant IT actuellement en poste chez <span className="text-purple-400 font-semibold">CCF – La Défense</span> en
+              support VIP/VVIP pour les membres du Comité Exécutif. Intervention en environnements sécurisés,
+              gestion d'incidents critiques avec suivi personnalisé.
             </p>
-            <p className="text-slate-400 leading-relaxed">
-              J'ai monté des serveurs, sécurisé des réseaux, et co-fondé l'association{' '}
-              <span className="text-purple-400 font-semibold">Valaron</span> — un projet qui incarne
-              ma vision d'une tech accessible et robuste.
+            <p className="text-slate-400 leading-relaxed mb-4">
+              Fondateur et ancien Président de l'association{' '}
+              <span className="text-pink-400 font-semibold">Valaron</span> — projet IT complet :
+              virtualisation, réseaux, sécurité, monitoring et gestion d'équipe.
             </p>
+            <div className="flex flex-wrap gap-2">
+              {['CCNA 1 & 2', 'Alternance CESI', 'Santé & Sécurité au travail'].map(c => (
+                <span key={c} className="text-xs px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 font-mono">
+                  {c}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
-            {[
-              { icon: '🖥️', label: 'Linux / Windows Server' },
-              { icon: '🔐', label: 'Cybersécurité' },
-              { icon: '🌐', label: 'Réseaux TCP/IP' },
-              { icon: '🛡️', label: 'Pare-feu & VPN' },
-            ].map(item => (
-              <div key={item.label} className="glass rounded-xl p-4 flex items-center gap-3 hover:neon-border transition-all duration-300 hover:scale-105">
-                <span className="text-2xl">{item.icon}</span>
-                <span className="text-sm text-slate-300 font-medium">{item.label}</span>
-              </div>
-            ))}
+          {/* Education */}
+          <div className="glass rounded-2xl p-6 mb-6">
+            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Formation</h3>
+            <div className="space-y-3">
+              {EDUCATION.map(e => (
+                <div key={e.title} className="flex items-start gap-3">
+                  <span className="text-purple-400 mt-1">🎓</span>
+                  <div>
+                    <div className="text-slate-200 text-sm font-medium">{e.title}</div>
+                    <div className="text-slate-500 text-xs">{e.school} · {e.type}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Langues */}
+          <div className="glass rounded-2xl p-6">
+            <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-4">Langues</h3>
+            <div className="space-y-2">
+              {[
+                { lang: 'Français', level: 'Avancé', pct: 95 },
+                { lang: 'Arabe littéraire', level: 'Avancé', pct: 90 },
+                { lang: 'Anglais', level: 'Intermédiaire', pct: 60 },
+              ].map(l => (
+                <div key={l.lang}>
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="text-slate-300">{l.lang}</span>
+                    <span className="text-slate-500 text-xs">{l.level}</span>
+                  </div>
+                  <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+                    <div className="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500" style={{ width: `${l.pct}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
+        {/* Timeline */}
         <div className="space-y-4">
           {TIMELINE.map((item, i) => (
             <div key={i} className="relative pl-8 group">
@@ -92,9 +129,9 @@ export default function About() {
                   <span className={`text-xs font-mono px-2 py-1 rounded-full bg-gradient-to-r ${item.color} text-white`}>
                     {item.year}
                   </span>
-                  <span className="text-xs text-slate-500 italic">{item.org}</span>
                 </div>
-                <h4 className="text-white font-semibold mb-1">{item.title}</h4>
+                <h4 className="text-white font-semibold mb-0.5">{item.title}</h4>
+                <p className="text-purple-400 text-xs font-mono mb-2">{item.org}</p>
                 <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
               </div>
             </div>
