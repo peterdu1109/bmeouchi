@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Bautros Meouchi — Site en cours de construction" />
-  <title>bmeouchi.com — Bientôt disponible</title>
+  <meta name="description" content="Bautros Meouchi — Consultant IT & Technicien Support VIP/VVIP — Site en cours de construction" />
+  <title>Bautros Meouchi — Bientôt disponible</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -34,10 +34,8 @@
       position: relative;
     }
 
-    /* ── CANVAS BACKGROUND ── */
     canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
 
-    /* ── PARTICLES ── */
     .particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
     .particle {
       position: absolute;
@@ -52,14 +50,13 @@
       100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
     }
 
-    /* ── MAIN CARD ── */
     .card {
       position: relative;
       z-index: 10;
       text-align: center;
       padding: 3rem 2.5rem;
-      max-width: 600px;
-      width: 90%;
+      max-width: 640px;
+      width: 92%;
       background: var(--glass);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -73,7 +70,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── LOGO / BADGE ── */
     .badge {
       display: inline-flex;
       align-items: center;
@@ -85,7 +81,7 @@
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.78rem;
       color: var(--purple);
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .dot {
       width: 8px; height: 8px;
@@ -98,13 +94,12 @@
       50%       { opacity: 0.4; transform: scale(0.7); }
     }
 
-    /* ── HEADING ── */
     h1 {
-      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-size: clamp(2.6rem, 8vw, 4.5rem);
       font-weight: 900;
       line-height: 1.05;
       letter-spacing: -0.03em;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
     }
     .gradient {
       background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 50%, var(--orange) 100%);
@@ -113,14 +108,51 @@
       background-clip: text;
     }
 
-    /* ── SUB ── */
+    .job-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.85rem;
+      color: var(--purple);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
     .subtitle {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #94a3b8;
-      margin-bottom: 2.5rem;
-      line-height: 1.6;
+      margin-bottom: 2rem;
+      line-height: 1.7;
     }
     .subtitle strong { color: #cbd5e1; font-weight: 600; }
+
+    /* ── STATS ── */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 2rem;
+    }
+    .stat {
+      padding: 12px 8px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+    }
+    .stat-val {
+      font-size: 1.4rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-label {
+      font-size: 0.65rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
 
     /* ── PROGRESS ── */
     .progress-label {
@@ -138,7 +170,7 @@
       background: rgba(255,255,255,0.06);
       border-radius: 999px;
       overflow: hidden;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .progress-bar {
       height: 100%;
@@ -154,7 +186,7 @@
     }
     @keyframes grow {
       from { width: 0%; }
-      to   { width: 65%; }
+      to   { width: 70%; }
     }
 
     /* ── CHIPS ── */
@@ -163,21 +195,45 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .chip {
       padding: 5px 14px;
       border-radius: 8px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-family: 'JetBrains Mono', monospace;
       color: #94a3b8;
       transition: all 0.2s;
     }
     .chip:hover { border-color: var(--purple); color: var(--purple); }
 
-    /* ── NOTIFY FORM ── */
+    /* ── CONTACT ROW ── */
+    .contact-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .contact-item:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* ── NOTIFY ── */
     .notify {
       display: flex;
       gap: 8px;
@@ -186,7 +242,7 @@
     }
     .notify input {
       flex: 1;
-      min-width: 200px;
+      min-width: 190px;
       padding: 12px 16px;
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -212,14 +268,14 @@
     }
     .notify button:hover { opacity: 0.9; transform: scale(1.03); }
 
-    /* ── FOOTER ── */
     footer {
       position: relative;
       z-index: 10;
-      margin-top: 2rem;
-      font-size: 0.75rem;
+      margin-top: 1.5rem;
+      font-size: 0.72rem;
       font-family: 'JetBrains Mono', monospace;
       color: #334155;
+      text-align: center;
     }
     footer span { color: var(--purple); }
   </style>
@@ -227,13 +283,12 @@
 <body>
 
   <canvas id="bg"></canvas>
-
   <div class="particles" id="particles"></div>
 
   <div class="card">
     <div class="badge">
       <span class="dot"></span>
-      En construction — bmeouchi.com
+      En construction · bmeouchi.com
     </div>
 
     <h1>
@@ -241,28 +296,56 @@
       <span style="color:#fff">Meouchi</span>
     </h1>
 
+    <p class="job-title">Consultant IT · Support VIP/VVIP · SysAdmin</p>
+
     <p class="subtitle">
-      <strong>Administrateur Systèmes &amp; Réseaux · Cybersécurité</strong><br />
-      Mon portfolio arrive bientôt. En attendant, l'infra tourne —
-      c'est tout ce qui compte.
+      Actuellement chez <strong>CCF – La Défense</strong>, support dédié aux cadres dirigeants.<br />
+      Fondateur de <strong>Valaron</strong> · CCNA 1&2 · Courbevoie, Île-de-France.
     </p>
 
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-val">5+</div>
+        <div class="stat-label">ans d'XP</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">VIP</div>
+        <div class="stat-label">Support N1–N3</div>
+      </div>
+      <div class="stat">
+        <div class="stat-val">CCNA</div>
+        <div class="stat-label">1 &amp; 2 certifié</div>
+      </div>
+    </div>
+
     <div class="progress-label">
-      <span>Avancement du site</span>
-      <span id="pct">65%</span>
+      <span>Avancement du portfolio</span>
+      <span>70%</span>
     </div>
     <div class="progress-track">
       <div class="progress-bar"></div>
     </div>
 
     <div class="chips">
-      <span class="chip">SysAdmin</span>
-      <span class="chip">Réseaux</span>
-      <span class="chip">Cybersécurité</span>
-      <span class="chip">Support N1–N3</span>
+      <span class="chip">Windows Server</span>
+      <span class="chip">Linux</span>
+      <span class="chip">Active Directory</span>
+      <span class="chip">Office 365</span>
+      <span class="chip">Proxmox / VMware</span>
+      <span class="chip">ServiceNow</span>
       <span class="chip">Valaron</span>
-      <span class="chip">Proxmox</span>
-      <span class="chip">pfSense</span>
+    </div>
+
+    <div class="contact-row">
+      <a class="contact-item" href="mailto:bautros@gmail.com">
+        📧 bautros@gmail.com
+      </a>
+      <a class="contact-item" href="tel:0787603949">
+        📞 07 87 60 39 49
+      </a>
+      <span class="contact-item">
+        📍 Courbevoie, 92
+      </span>
     </div>
 
     <div class="notify">
@@ -271,10 +354,9 @@
     </div>
   </div>
 
-  <footer>© 2026 <span>bmeouchi.com</span> — Bautros Meouchi</footer>
+  <footer>© 2026 <span>bmeouchi.com</span> · Bautros Meouchi · Consultant IT &amp; Technicien Support VIP/VVIP</footer>
 
   <script>
-    /* ── CANVAS ORBS ── */
     const canvas = document.getElementById('bg')
     const ctx = canvas.getContext('2d')
     let t = 0
@@ -294,7 +376,7 @@
         { color: 'rgba(249,115,22,', r: 250 },
       ]
       orbs.forEach((o, i) => {
-        const x = canvas.width / 2  + Math.cos(t * 0.4 + i * 2.1) * canvas.width  * 0.28
+        const x = canvas.width  / 2 + Math.cos(t * 0.4 + i * 2.1) * canvas.width  * 0.28
         const y = canvas.height / 2 + Math.sin(t * 0.3 + i * 2.1) * canvas.height * 0.22
         const g = ctx.createRadialGradient(x, y, 0, x, y, o.r)
         g.addColorStop(0, o.color + '0.09)')
@@ -307,7 +389,6 @@
     }
     drawOrbs()
 
-    /* ── PARTICLES ── */
     const container = document.getElementById('particles')
     const colors = ['#a855f7','#ec4899','#f97316','#06b6d4','#818cf8']
     for (let i = 0; i < 25; i++) {
@@ -316,7 +397,7 @@
       const size = Math.random() * 5 + 2
       p.style.cssText = `
         left:${Math.random()*100}%;
-        width:${size}px; height:${size}px;
+        width:${size}px;height:${size}px;
         background:${colors[Math.floor(Math.random()*colors.length)]};
         box-shadow:0 0 6px currentColor;
         animation-duration:${Math.random()*18+8}s;
@@ -325,7 +406,6 @@
       container.appendChild(p)
     }
 
-    /* ── NOTIFY ── */
     function notify() {
       const email = document.getElementById('email').value.trim()
       if (!email || !email.includes('@')) {
