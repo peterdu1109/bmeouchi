@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bautros Meouchi — Site en cours de construction" />
+  <title>bmeouchi.com — Bientôt disponible</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple: #a855f7;
+      --pink:   #ec4899;
+      --orange: #f97316;
+      --cyan:   #06b6d4;
+      --bg:     #0a0a0f;
+      --glass:  rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.08);
+    }
+
+    body {
+      background: var(--bg);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* ── CANVAS BACKGROUND ── */
+    canvas { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+    /* ── PARTICLES ── */
+    .particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: rise linear infinite;
+      opacity: 0;
+    }
+    @keyframes rise {
+      0%   { transform: translateY(110vh) scale(1); opacity: 0; }
+      10%  { opacity: 1; }
+      90%  { opacity: 0.6; }
+      100% { transform: translateY(-10vh) scale(0.5); opacity: 0; }
+    }
+
+    /* ── MAIN CARD ── */
+    .card {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      padding: 3rem 2.5rem;
+      max-width: 600px;
+      width: 90%;
+      background: var(--glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: 0 0 40px rgba(168,85,247,0.15), 0 0 80px rgba(236,72,153,0.07);
+      animation: fadeUp 0.8s ease-out both;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── LOGO / BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 999px;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      color: var(--purple);
+      margin-bottom: 2rem;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.7); }
+    }
+
+    /* ── HEADING ── */
+    h1 {
+      font-size: clamp(2.8rem, 8vw, 5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+    .gradient {
+      background: linear-gradient(135deg, var(--purple) 0%, var(--pink) 50%, var(--orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ── SUB ── */
+    .subtitle {
+      font-size: 1rem;
+      color: #94a3b8;
+      margin-bottom: 2.5rem;
+      line-height: 1.6;
+    }
+    .subtitle strong { color: #cbd5e1; font-weight: 600; }
+
+    /* ── PROGRESS ── */
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748b;
+      margin-bottom: 0.5rem;
+    }
+    .progress-label span:last-child { color: var(--purple); }
+    .progress-track {
+      width: 100%;
+      height: 6px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 2.5rem;
+    }
+    .progress-bar {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--purple), var(--pink), var(--orange));
+      background-size: 200% 100%;
+      animation: shimmer 2s linear infinite, grow 1.5s ease-out both;
+      animation-delay: 0s, 0.3s;
+    }
+    @keyframes shimmer {
+      0%   { background-position: 200% center; }
+      100% { background-position: -200% center; }
+    }
+    @keyframes grow {
+      from { width: 0%; }
+      to   { width: 65%; }
+    }
+
+    /* ── CHIPS ── */
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+    }
+    .chip {
+      padding: 5px 14px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.8rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #94a3b8;
+      transition: all 0.2s;
+    }
+    .chip:hover { border-color: var(--purple); color: var(--purple); }
+
+    /* ── NOTIFY FORM ── */
+    .notify {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .notify input {
+      flex: 1;
+      min-width: 200px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: #e2e8f0;
+      font-size: 0.9rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .notify input:focus { border-color: var(--purple); }
+    .notify input::placeholder { color: #475569; }
+    .notify button {
+      padding: 12px 22px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      color: #fff;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .notify button:hover { opacity: 0.9; transform: scale(1.03); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 10;
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #334155;
+    }
+    footer span { color: var(--purple); }
+  </style>
+</head>
+<body>
+
+  <canvas id="bg"></canvas>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="card">
+    <div class="badge">
+      <span class="dot"></span>
+      En construction — bmeouchi.com
+    </div>
+
+    <h1>
+      <span class="gradient">Bautros</span><br />
+      <span style="color:#fff">Meouchi</span>
+    </h1>
+
+    <p class="subtitle">
+      <strong>Administrateur Systèmes &amp; Réseaux · Cybersécurité</strong><br />
+      Mon portfolio arrive bientôt. En attendant, l'infra tourne —
+      c'est tout ce qui compte.
+    </p>
+
+    <div class="progress-label">
+      <span>Avancement du site</span>
+      <span id="pct">65%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-bar"></div>
+    </div>
+
+    <div class="chips">
+      <span class="chip">SysAdmin</span>
+      <span class="chip">Réseaux</span>
+      <span class="chip">Cybersécurité</span>
+      <span class="chip">Support N1–N3</span>
+      <span class="chip">Valaron</span>
+      <span class="chip">Proxmox</span>
+      <span class="chip">pfSense</span>
+    </div>
+
+    <div class="notify">
+      <input type="email" placeholder="votre@email.com" id="email" />
+      <button onclick="notify()">Me prévenir</button>
+    </div>
+  </div>
+
+  <footer>© 2026 <span>bmeouchi.com</span> — Bautros Meouchi</footer>
+
+  <script>
+    /* ── CANVAS ORBS ── */
+    const canvas = document.getElementById('bg')
+    const ctx = canvas.getContext('2d')
+    let t = 0
+
+    function resize() {
+      canvas.width = window.innerWidth
+      canvas.height = window.innerHeight
+    }
+    resize()
+    window.addEventListener('resize', resize)
+
+    function drawOrbs() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      const orbs = [
+        { color: 'rgba(168,85,247,', r: 350 },
+        { color: 'rgba(236,72,153,', r: 300 },
+        { color: 'rgba(249,115,22,', r: 250 },
+      ]
+      orbs.forEach((o, i) => {
+        const x = canvas.width / 2  + Math.cos(t * 0.4 + i * 2.1) * canvas.width  * 0.28
+        const y = canvas.height / 2 + Math.sin(t * 0.3 + i * 2.1) * canvas.height * 0.22
+        const g = ctx.createRadialGradient(x, y, 0, x, y, o.r)
+        g.addColorStop(0, o.color + '0.09)')
+        g.addColorStop(1, 'transparent')
+        ctx.fillStyle = g
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+      })
+      t += 0.004
+      requestAnimationFrame(drawOrbs)
+    }
+    drawOrbs()
+
+    /* ── PARTICLES ── */
+    const container = document.getElementById('particles')
+    const colors = ['#a855f7','#ec4899','#f97316','#06b6d4','#818cf8']
+    for (let i = 0; i < 25; i++) {
+      const p = document.createElement('div')
+      p.className = 'particle'
+      const size = Math.random() * 5 + 2
+      p.style.cssText = `
+        left:${Math.random()*100}%;
+        width:${size}px; height:${size}px;
+        background:${colors[Math.floor(Math.random()*colors.length)]};
+        box-shadow:0 0 6px currentColor;
+        animation-duration:${Math.random()*18+8}s;
+        animation-delay:-${Math.random()*20}s;
+      `
+      container.appendChild(p)
+    }
+
+    /* ── NOTIFY ── */
+    function notify() {
+      const email = document.getElementById('email').value.trim()
+      if (!email || !email.includes('@')) {
+        document.getElementById('email').style.borderColor = '#ef4444'
+        return
+      }
+      document.querySelector('.notify').innerHTML =
+        '<p style="color:#a855f7;font-family:JetBrains Mono,monospace;font-size:0.9rem">✓ Noté — je te préviens dès que c\'est live !</p>'
+    }
+  </script>
+</body>
+</html>
