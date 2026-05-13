@@ -84,23 +84,37 @@ function Contact() {
       <div className="glass neon-border rounded-2xl p-8">
         <div className="space-y-4 text-left mb-6">
           <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/30 hover:bg-purple-500/10 transition-colors group">
-            <span className="text-2xl">🌐</span>
+            <span className="text-2xl">📧</span>
             <div>
-              <div className="text-xs text-slate-500 uppercase tracking-wider">Site</div>
-              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">bmeouchi.com</div>
+              <div className="text-xs text-slate-500 uppercase tracking-wider">Email</div>
+              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">bautros@gmail.com</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/30 hover:bg-purple-500/10 transition-colors group">
+            <span className="text-2xl">📞</span>
+            <div>
+              <div className="text-xs text-slate-500 uppercase tracking-wider">Téléphone</div>
+              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">07 87 60 39 49</div>
+            </div>
+          </div>
+          <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/30 hover:bg-purple-500/10 transition-colors group">
+            <span className="text-2xl">📍</span>
+            <div>
+              <div className="text-xs text-slate-500 uppercase tracking-wider">Localisation</div>
+              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">Courbevoie, 92400 · Île-de-France</div>
             </div>
           </div>
           <div className="flex items-center gap-4 p-4 rounded-xl bg-slate-800/30 hover:bg-purple-500/10 transition-colors group">
             <span className="text-2xl">🏛️</span>
             <div>
-              <div className="text-xs text-slate-500 uppercase tracking-wider">Association</div>
-              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">Valaron</div>
+              <div className="text-xs text-slate-500 uppercase tracking-wider">Association fondée</div>
+              <div className="text-slate-200 font-mono group-hover:text-purple-300 transition-colors">Valaron – Courbevoie</div>
             </div>
           </div>
         </div>
 
         <a
-          href="mailto:contact@bmeouchi.com"
+          href="mailto:bautros@gmail.com"
           className="block w-full py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/30"
         >
           Envoyer un message →

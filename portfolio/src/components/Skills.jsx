@@ -2,56 +2,58 @@ import { useEffect, useRef, useState } from 'react'
 
 const SKILLS = [
   {
-    category: 'Systèmes',
+    category: 'Systèmes & Virtualisation',
     icon: '🖥️',
     color: 'from-purple-500 to-purple-700',
     items: [
-      { name: 'Linux (Debian/Ubuntu/CentOS)', level: 90 },
-      { name: 'Windows Server', level: 85 },
-      { name: 'Active Directory / GPO', level: 80 },
-      { name: 'Virtualisation (VMware/Proxmox)', level: 75 },
+      { name: 'Windows (10/11/Server)', level: 95 },
+      { name: 'Linux (admin & services)', level: 85 },
+      { name: 'Proxmox / VMware ESXi', level: 82 },
+      { name: 'macOS', level: 78 },
     ],
   },
   {
-    category: 'Réseaux',
+    category: 'Réseaux & Sécurité',
     icon: '🌐',
     color: 'from-pink-500 to-pink-700',
     items: [
-      { name: 'TCP/IP & Routing', level: 88 },
-      { name: 'VPN (OpenVPN, WireGuard)', level: 80 },
-      { name: 'Firewall (pfSense, iptables)', level: 82 },
-      { name: 'Switching / VLAN', level: 78 },
-    ],
-  },
-  {
-    category: 'Cybersécurité',
-    icon: '🔐',
-    color: 'from-orange-500 to-orange-700',
-    items: [
-      { name: 'Analyse de vulnérabilités', level: 75 },
-      { name: 'Sécurité réseau & durcissement', level: 80 },
-      { name: 'SIEM / Logs monitoring', level: 70 },
-      { name: 'Gestion des incidents', level: 85 },
+      { name: 'Active Directory / GPO', level: 90 },
+      { name: 'Configuration Pare-feu', level: 82 },
+      { name: 'DNS / DHCP / Services web', level: 85 },
+      { name: 'Office 365 (comptes, licences)', level: 92 },
     ],
   },
   {
     category: 'Support IT',
     icon: '🛠️',
+    color: 'from-orange-500 to-orange-700',
+    items: [
+      { name: 'Support VIP/VVIP N1–N3', level: 95 },
+      { name: 'Ticketing (ServiceNow, SmartDesk)', level: 93 },
+      { name: 'Imaging / Déploiement postes', level: 90 },
+      { name: 'Flotte mobile iOS / Android', level: 85 },
+    ],
+  },
+  {
+    category: 'Dev & Outils',
+    icon: '💻',
     color: 'from-cyan-500 to-cyan-700',
     items: [
-      { name: 'Support N1 (helpdesk)', level: 95 },
-      { name: 'Support N2 (technique)', level: 90 },
-      { name: 'Support N3 (avancé)', level: 80 },
-      { name: 'Documentation ITSM', level: 75 },
+      { name: 'Python / PHP / Ruby', level: 72 },
+      { name: 'C++ / Java', level: 65 },
+      { name: 'HTML / CSS', level: 80 },
+      { name: 'Sauvegarde NAS & Monitoring', level: 83 },
     ],
   },
 ]
 
 const BADGES = [
-  'Linux', 'Windows Server', 'Active Directory', 'VMware', 'Proxmox',
-  'TCP/IP', 'VPN', 'pfSense', 'iptables', 'Wireshark', 'Nmap',
-  'VLAN', 'SSH', 'DNS', 'DHCP', 'Docker', 'Bash', 'PowerShell',
-  'Git', 'Ticketing', 'GLPI', 'Jira',
+  'Windows Server', 'Linux', 'macOS', 'Proxmox', 'VMware',
+  'Active Directory', 'Office 365', 'DNS/DHCP', 'Pare-feu',
+  'ServiceNow', 'SmartDesk', 'Jira', 'Zendesk', 'GLPI',
+  'OCS Inventory', 'Kace', 'PuTTy', 'Visual Studio',
+  'Python', 'PHP', 'Ruby', 'C++', 'Java', 'HTML/CSS',
+  'NAS', 'Monitoring', 'CCNA 1&2', 'iOS/Android MDM',
 ]
 
 function SkillBar({ name, level, color }) {
@@ -91,7 +93,7 @@ export default function Skills() {
           <span className="gradient-text">Compétences</span>
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto">
-          Un stack technique solide, forgé sur le terrain.
+          Un stack technique solide, forgé sur le terrain — de la Défense à Courbevoie.
         </p>
       </div>
 
