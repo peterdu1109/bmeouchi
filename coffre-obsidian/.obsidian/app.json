@@ -1,0 +1,12 @@
+{
+  "defaultViewMode": "preview",
+  "foldHeading": false,
+  "foldIndent": true,
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false
+  },
+  "showLineNumber": false,
+  "spellcheck": false,
+  "strictLineBreaks": false
+}
