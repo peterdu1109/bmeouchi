@@ -1,0 +1,93 @@
+name: CI — Build & Lighthouse
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'portfolio/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: portfolio
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: portfolio/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: portfolio/dist
+          retention-days: 1
+
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: portfolio/dist
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install serve
+        run: npm install -g serve
+
+      - name: Serve & run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          configPath: '.lighthouserc.json'
+
+      - name: Comment Lighthouse results on PR
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const fs = require('fs')
+            const results = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json', 'utf8'))
+            const r = results[0]?.summary ?? {}
+            const fmt = (v) => v ? `${Math.round(v * 100)}` : 'N/A'
+            const body = [
+              '## 🏎️ Lighthouse Report',
+              '',
+              `| Métrique | Score |`,
+              `|----------|-------|`,
+              `| ⚡ Performance  | ${fmt(r.performance)} / 100 |`,
+              `| ♿ Accessibilité | ${fmt(r.accessibility)} / 100 |`,
+              `| ✅ Bonnes pratiques | ${fmt(r['best-practices'])} / 100 |`,
+              `| 🔍 SEO | ${fmt(r.seo)} / 100 |`,
+            ].join('\n')
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body,
+            })

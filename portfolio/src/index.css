@@ -4,13 +4,33 @@
 
 :root {
   scroll-behavior: smooth;
+  --bg: #0a0a0f;
+  --fg: #e2e8f0;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --nav-link: #94a3b8;
+  --nav-link-hover: #d8b4fe;
+  --card-bg: rgba(255,255,255,0.03);
+  --input-bg: rgba(30,30,50,0.5);
+}
+
+[data-theme='light'] {
+  --bg: #f1f0f7;
+  --fg: #1e1b2e;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(168, 85, 247, 0.2);
+  --nav-link: #6b7280;
+  --nav-link-hover: #7c3aed;
+  --card-bg: rgba(255,255,255,0.6);
+  --input-bg: rgba(255,255,255,0.8);
 }
 
 body {
-  background-color: #0a0a0f;
-  color: #e2e8f0;
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar {
@@ -18,7 +38,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -34,13 +54,21 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--glass-bg);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
 }
 
 .neon-border {
   box-shadow: 0 0 15px rgba(168, 85, 247, 0.3), inset 0 0 15px rgba(168, 85, 247, 0.05);
+}
+
+.nav-link {
+  color: var(--nav-link);
+}
+
+.nav-link:hover {
+  color: var(--nav-link-hover);
 }
 
 .skill-bar {
@@ -62,3 +90,16 @@ body {
   animation: particle linear infinite;
   pointer-events: none;
 }
+
+/* Light mode overrides for text */
+[data-theme='light'] .text-slate-400 { color: #6b7280; }
+[data-theme='light'] .text-slate-300 { color: #374151; }
+[data-theme='light'] .text-slate-200 { color: #1f2937; }
+[data-theme='light'] .text-slate-500 { color: #9ca3af; }
+[data-theme='light'] .text-slate-600 { color: #6b7280; }
+[data-theme='light'] .text-white { color: #111827; }
+[data-theme='light'] .bg-slate-800\/30 { background: rgba(255,255,255,0.5); }
+[data-theme='light'] .bg-slate-800\/50 { background: rgba(255,255,255,0.7); }
+[data-theme='light'] .border-slate-700\/50 { border-color: rgba(168,85,247,0.2); }
+[data-theme='light'] .bg-slate-800 { background: #e5e7eb; }
+[data-theme='light'] body { background: var(--bg); }

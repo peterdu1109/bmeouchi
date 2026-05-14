@@ -235,12 +235,62 @@
     }
     .contact-item:hover { border-color: var(--purple); color: var(--purple); }
 
+    /* ── COUNTDOWN ── */
+    .countdown-label {
+      font-size: 0.72rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+    .countdown {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .countdown-unit {
+      padding: 12px 6px;
+      border-radius: 12px;
+      background: rgba(168,85,247,0.07);
+      border: 1px solid rgba(168,85,247,0.2);
+      text-align: center;
+    }
+    .countdown-val {
+      font-size: 1.6rem;
+      font-weight: 900;
+      font-family: 'JetBrains Mono', monospace;
+      background: linear-gradient(135deg, var(--purple), var(--pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .countdown-unit-label {
+      font-size: 0.6rem;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 4px;
+    }
+
     /* ── NOTIFY ── */
     .notify {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       justify-content: center;
+    }
+    .notify-title {
+      width: 100%;
+      font-size: 0.78rem;
+      font-family: 'JetBrains Mono', monospace;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-align: center;
+      margin-bottom: 0.25rem;
     }
     .notify input {
       flex: 1;
@@ -366,6 +416,14 @@
       <div class="progress-bar"></div>
     </div>
 
+    <p class="countdown-label">⏳ Lancement dans</p>
+    <div class="countdown">
+      <div class="countdown-unit"><div class="countdown-val" id="cd-days">--</div><div class="countdown-unit-label">Jours</div></div>
+      <div class="countdown-unit"><div class="countdown-val" id="cd-hours">--</div><div class="countdown-unit-label">Heures</div></div>
+      <div class="countdown-unit"><div class="countdown-val" id="cd-min">--</div><div class="countdown-unit-label">Minutes</div></div>
+      <div class="countdown-unit"><div class="countdown-val" id="cd-sec">--</div><div class="countdown-unit-label">Secondes</div></div>
+    </div>
+
     <div class="chips">
       <span class="chip">Windows Server</span>
       <span class="chip">Linux</span>
@@ -388,9 +446,10 @@
       </span>
     </div>
 
-    <div class="notify">
+    <div class="notify" id="notify-form">
+      <p class="notify-title">🔔 Me prévenir du lancement</p>
       <input type="email" placeholder="votre@email.com" id="email" />
-      <button onclick="notify()">Me prévenir</button>
+      <button onclick="submitNotify()">Me prévenir</button>
     </div>
   </div>
 
@@ -446,14 +505,47 @@
       container.appendChild(p)
     }
 
-    function notify() {
-      const email = document.getElementById('email').value.trim()
-      if (!email || !email.includes('@')) {
-        document.getElementById('email').style.borderColor = '#ef4444'
+    // Countdown — date de lancement cible (modifiez selon besoin)
+    const LAUNCH_DATE = new Date('2026-09-01T00:00:00')
+    function updateCountdown() {
+      const now = new Date()
+      const diff = LAUNCH_DATE - now
+      if (diff <= 0) {
+        document.getElementById('cd-days').textContent = '00'
+        document.getElementById('cd-hours').textContent = '00'
+        document.getElementById('cd-min').textContent = '00'
+        document.getElementById('cd-sec').textContent = '00'
         return
       }
-      document.querySelector('.notify').innerHTML =
-        '<p style="color:#a855f7;font-family:JetBrains Mono,monospace;font-size:0.9rem">✓ Noté — je te préviens dès que c\'est live !</p>'
+      const d = Math.floor(diff / 86400000)
+      const h = Math.floor((diff % 86400000) / 3600000)
+      const m = Math.floor((diff % 3600000) / 60000)
+      const s = Math.floor((diff % 60000) / 1000)
+      document.getElementById('cd-days').textContent  = String(d).padStart(2,'0')
+      document.getElementById('cd-hours').textContent = String(h).padStart(2,'0')
+      document.getElementById('cd-min').textContent   = String(m).padStart(2,'0')
+      document.getElementById('cd-sec').textContent   = String(s).padStart(2,'0')
+    }
+    updateCountdown()
+    setInterval(updateCountdown, 1000)
+
+    async function submitNotify() {
+      const emailEl = document.getElementById('email')
+      const email = emailEl.value.trim()
+      if (!email || !email.includes('@')) {
+        emailEl.style.borderColor = '#ef4444'
+        return
+      }
+      emailEl.style.borderColor = ''
+      try {
+        await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ email, subject: 'Notification lancement bmeouchi.fr' }),
+        })
+      } catch (_) { /* stocker localement en fallback */ }
+      document.getElementById('notify-form').innerHTML =
+        '<p style="color:#a855f7;font-family:\'JetBrains Mono\',monospace;font-size:0.9rem;padding:12px 0">✓ Noté — je te préviens dès que c\'est live !</p>'
     }
   </script>
 </body>

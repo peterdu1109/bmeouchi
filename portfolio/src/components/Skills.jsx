@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { motion, useInView } from 'framer-motion'
 
 const SKILLS = [
   {
@@ -86,20 +87,38 @@ function SkillBar({ name, level, color }) {
 }
 
 export default function Skills() {
+  const titleRef = useRef(null)
+  const titleInView = useInView(titleRef, { once: true })
+  const badgesRef = useRef(null)
+  const badgesInView = useInView(badgesRef, { once: true, margin: '-60px' })
+
   return (
     <section id="competences" className="py-24 px-4 max-w-6xl mx-auto">
-      <div className="text-center mb-16">
+      <motion.div
+        ref={titleRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={titleInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="text-center mb-16"
+      >
         <h2 className="text-4xl md:text-5xl font-black mb-4">
           <span className="gradient-text">Compétences</span>
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto">
           Un stack technique solide, forgé sur le terrain — de la Défense à Courbevoie.
         </p>
-      </div>
+      </motion.div>
 
       <div className="grid md:grid-cols-2 gap-6 mb-12">
-        {SKILLS.map(cat => (
-          <div key={cat.category} className="glass neon-border rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300">
+        {SKILLS.map((cat, i) => (
+          <motion.div
+            key={cat.category}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-60px' }}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="glass neon-border rounded-2xl p-6 hover:scale-[1.02] transition-transform duration-300"
+          >
             <div className="flex items-center gap-3 mb-6">
               <span className="text-3xl">{cat.icon}</span>
               <h3 className={`text-xl font-bold bg-gradient-to-r ${cat.color} bg-clip-text text-transparent`}>
@@ -109,23 +128,32 @@ export default function Skills() {
             {cat.items.map(item => (
               <SkillBar key={item.name} name={item.name} level={item.level} color={cat.color} />
             ))}
-          </div>
+          </motion.div>
         ))}
       </div>
 
-      <div className="glass rounded-2xl p-6">
+      <motion.div
+        ref={badgesRef}
+        initial={{ opacity: 0, y: 30 }}
+        animate={badgesInView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.6 }}
+        className="glass rounded-2xl p-6"
+      >
         <h3 className="text-lg font-semibold text-slate-300 mb-4 text-center">Technologies & Outils</h3>
         <div className="flex flex-wrap gap-2 justify-center">
-          {BADGES.map(badge => (
-            <span
+          {BADGES.map((badge, i) => (
+            <motion.span
               key={badge}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={badgesInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.3, delay: i * 0.02 }}
               className="px-3 py-1.5 rounded-lg text-sm font-mono text-slate-300 bg-slate-800/50 border border-slate-700/50 hover:border-purple-500/50 hover:text-purple-300 transition-all duration-200 cursor-default"
             >
               {badge}
-            </span>
+            </motion.span>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }
