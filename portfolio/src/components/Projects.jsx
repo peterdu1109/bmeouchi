@@ -1,11 +1,19 @@
 const PROJECTS = [
   {
+    title: 'Elit Service — Afalula',
+    desc: 'Administrateur Système & Réseau en mission chez Afalula. Gestion réseau, cybersécurité, SOC (analyse d\'alertes, réponse à incidents), support VIP/VVIP N1→N3, infogérance. Supervision de l\'infrastructure client, hardening, gestion des pare-feu et des accès.',
+    tags: ['SOC', 'Cybersécurité', 'Réseau', 'VIP/VVIP N1→N3', 'Infogérance'],
+    color: 'from-purple-500 to-pink-500',
+    icon: '🛡️',
+    status: 'En poste',
+  },
+  {
     title: 'CCF – Support VIP/VVIP',
     desc: 'Support dédié aux membres du Comité Exécutif à La Défense. Interventions d\'urgence en environnements sécurisés, configuration postes haut de gamme (PC/Mac), gestion d\'inventaire VIP, administration AD/O365.',
     tags: ['ServiceNow', 'SmartDesk', 'AD/O365', 'PC/Mac'],
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-pink-500 to-orange-500',
     icon: '🏦',
-    status: 'En poste',
+    status: '2021–2024',
   },
   {
     title: 'Association Valaron',
@@ -55,6 +63,7 @@ const STATUS_COLORS = {
   '2021–2024': 'text-orange-400 bg-orange-400/10',
   '2020–2021': 'text-cyan-400 bg-cyan-400/10',
   'Déployé':   'text-blue-400 bg-blue-400/10',
+  '2024–Présent': 'text-green-400 bg-green-400/10',
 }
 
 export default function Projects() {

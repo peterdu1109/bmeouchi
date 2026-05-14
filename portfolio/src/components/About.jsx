@@ -4,17 +4,24 @@ import { motion, useInView } from 'framer-motion'
 const TIMELINE = [
   {
     year: '2024 – Présent',
+    title: 'Administrateur Système & Réseau',
+    org: 'Elit Service — client : Afalula (CDI)',
+    desc: 'Administration réseau et systèmes, cybersécurité, SOC (analyse d\'alertes, réponse à incidents), support VIP/VVIP N1→N3, infogérance. Supervision de l\'infrastructure client, durcissement des systèmes, gestion des pare-feu et des accès.',
+    color: 'from-purple-500 to-pink-500',
+  },
+  {
+    year: '2021 – 2024',
     title: 'Technicien Support VIP/VVIP',
     org: 'CCF – La Défense (CDI)',
     desc: 'Support dédié aux membres du Comité Exécutif et VIP/VVIP. Interventions d\'urgence en environnements sécurisés, configuration de postes haut de gamme (PC/Mac), coordination avec les équipes Infrastructure, Réseau et Sécurité. Administration AD/O365, ticketing Smartdesk & ServiceNow.',
-    color: 'from-purple-500 to-pink-500',
+    color: 'from-pink-500 to-orange-500',
   },
   {
     year: '2021 – 2024',
     title: 'Technicien Informatique',
     org: 'Colonna – Neuilly-sur-Seine (CDI)',
     desc: 'Support N1 à N3, helpdesk, déploiement de postes, imaging/masters, administration Active Directory & Office 365, gestion de flotte mobile iOS/Android, ticketing Smartdesk & ServiceNow.',
-    color: 'from-pink-500 to-orange-500',
+    color: 'from-orange-400 to-yellow-500',
   },
   {
     year: '2020 – 2021',
@@ -65,7 +72,7 @@ export default function About() {
           <span className="gradient-text">À propos</span>
         </h2>
         <p className="text-slate-400 max-w-xl mx-auto">
-          Consultant IT & Technicien Support Informatique VIP/VVIP — 5 ans d'expérience terrain en Île-de-France.
+          Admin Sys & Réseau · Cybersécurité · SOC · Infogérance — 5 ans d'expérience terrain en Île-de-France.
         </p>
       </motion.div>
 
@@ -83,9 +90,10 @@ export default function About() {
                 </div>
               </div>
               <p className="text-slate-300 leading-relaxed mb-4">
-                Consultant IT actuellement en poste chez <span className="text-purple-400 font-semibold">CCF – La Défense</span> en
-                support VIP/VVIP pour les membres du Comité Exécutif. Intervention en environnements sécurisés,
-                gestion d'incidents critiques avec suivi personnalisé.
+                Administrateur Système & Réseau actuellement en poste chez{' '}
+                <span className="text-purple-400 font-semibold">Elit Service</span>{' '}
+                (client : <span className="text-pink-400 font-semibold">Afalula</span>) —
+                réseau, cybersécurité, SOC, support VIP/VVIP N1→N3 et infogérance.
               </p>
               <p className="text-slate-400 leading-relaxed mb-4">
                 Fondateur et ancien Président de l'association{' '}

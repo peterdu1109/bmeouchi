@@ -71,7 +71,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         <div className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border text-sm font-mono text-purple-400">
           <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          Disponible · Courbevoie (92) · Île-de-France
+          En poste · Elit Service / Afalula · Île-de-France
         </div>
 
         <h1 className="text-6xl md:text-8xl font-black mb-4 tracking-tight">
@@ -81,14 +81,14 @@ export default function Hero() {
         </h1>
 
         <p className="text-xl md:text-2xl font-mono text-purple-300 mb-3 tracking-widest uppercase">
-          Consultant IT · Support VIP/VVIP · SysAdmin
+          Admin Sys &amp; Réseau · Cybersécurité · SOC · Infogérance
         </p>
 
         <p className="text-slate-400 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
-          Technicien Support Informatique VIP/VVIP chez <span className="text-purple-400 font-semibold">CCF – La Défense</span>,
-          ex-Colonna &amp; Metaline. Président fondateur de l'association{' '}
-          <span className="text-pink-400 font-semibold">Valaron</span>.
-          Infrastructure serveurs, réseaux, cybersécurité.
+          Administrateur Système &amp; Réseau chez <span className="text-purple-400 font-semibold">Elit Service</span>{' '}
+          (client : <span className="text-pink-400 font-semibold">Afalula</span>) —
+          réseau, cybersécurité, SOC, support VIP/VVIP N1→N3 &amp; infogérance.
+          Fondateur de l'association <span className="text-orange-400 font-semibold">Valaron</span>.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">

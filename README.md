@@ -2,10 +2,10 @@
 
 # ⚡ Bautros Meouchi
 
-### `< Consultant IT · Support VIP/VVIP · SysAdmin · Cybersécurité />`
+### `< Admin Sys & Réseau · Cybersécurité · SOC · Support VIP/VVIP · Infogérance />`
 
 [![Site](https://img.shields.io/badge/🌐_Site-bmeouchi.com-a855f7?style=for-the-badge)](https://bmeouchi.com)
-[![Poste](https://img.shields.io/badge/💼_CCF-La_Défense_(CDI)-ec4899?style=for-the-badge)](#)
+[![Poste](https://img.shields.io/badge/💼_Elit_Service-Afalula_(CDI)-ec4899?style=for-the-badge)](#)
 [![Localisation](https://img.shields.io/badge/📍_Courbevoie-92400_·_Île--de--France-f97316?style=for-the-badge)](#)
 [![CCNA](https://img.shields.io/badge/📜_CCNA-1_&_2_Certifié-06b6d4?style=for-the-badge)](#)
 
@@ -15,7 +15,7 @@
 
 ## 👤 Qui suis-je ?
 
-Technicien Support Informatique **VIP/VVIP** actuellement en poste chez **CCF – La Défense**, dédié aux membres du Comité Exécutif et cadres dirigeants. Fondateur et ancien Président de l'association **Valaron** — infrastructure complète, du bare metal au monitoring.
+Administrateur Système & Réseau actuellement en poste chez **Elit Service**, missé chez le client **Afalula**. Missions : réseau, cybersécurité, SOC, support VIP/VVIP N1→N3 et infogérance. Fondateur et ancien Président de l'association **Valaron** — infrastructure complète, du bare metal au monitoring.
 
 ```
 📧  bautros@gmail.com          📞  07 87 60 39 49
@@ -28,7 +28,8 @@ Technicien Support Informatique **VIP/VVIP** actuellement en poste chez **CCF �
 
 | Période | Poste | Entreprise |
 |---------|-------|------------|
-| 2024 – Présent | Technicien Support VIP/VVIP | **CCF – La Défense** (CDI) |
+| 2024 – Présent | Admin Sys & Réseau · Cyber · SOC · VIP/VVIP · Infogérance | **Elit Service** (client : Afalula) (CDI) |
+| 2021 – 2024 | Technicien Support VIP/VVIP | **CCF – La Défense** (CDI) |
 | 2021 – 2024 | Technicien Informatique | **Colonna – Neuilly-sur-Seine** (CDI) |
 | 2020 – 2021 | Technicien Informatique de Backup | **Metaline – Nanterre** (CDI) |
 | 2019 – 2023 | Président & Directeur Général | **Association Valaron – Courbevoie** |
@@ -39,8 +40,9 @@ Technicien Support Informatique **VIP/VVIP** actuellement en poste chez **CCF �
 
 ```yaml
 Systèmes:       Windows Server · Linux · macOS · Proxmox · VMware
-Réseaux:        TCP/IP · DNS/DHCP · Active Directory · Pare-feu · VLAN
-Support:        VIP/VVIP N1→N3 · ServiceNow · SmartDesk · Zendesk · Kace
+Réseaux:        TCP/IP · DNS/DHCP · Active Directory · Pare-feu · VLAN · Routing/Switching
+Cybersécurité:  SOC · SIEM · Audit · Hardening · Incident Response · Pentest
+Support:        VIP/VVIP N1→N3 · Infogérance · ServiceNow · SmartDesk · Zendesk · Kace
 Cloud/Office:   Office 365 · Azure AD · MDM iOS/Android
 Dev:            Python · PHP · Ruby · C++ · Java · HTML/CSS
 Sauvegarde:     NAS · Monitoring · Automatisation Bash/PowerShell
